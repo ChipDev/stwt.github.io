@@ -1,4 +1,4 @@
-# **`Blake Stewart`**
+# **`Blake S.`**
 > I've worked on many projects during the COVID-19 situation. A couple of them have had pieces of their code published on my profile [@stwt](https://github.com/ChipDev)
 > It's an opportunity -- silver lining - that comes with being at home and having remote learning. 
 
