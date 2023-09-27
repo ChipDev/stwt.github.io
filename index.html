@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <style>
-    
     #video-container {
       position: fixed;
       top: 0;
@@ -41,7 +41,12 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      
+
+
+      font-family: 'EB Garamond', serif;
+      color: #fff;
+      font-size: 26px;
+      overflow-x: hidden;
     }
 
     .blur-container {
@@ -51,40 +56,43 @@
       backdrop-filter: blur(2px);
       background: rgba(0, 10, 0, 0.2);
       border-radius: 2px;
-      
+
       justify-content: left;
       padding: 20px;
       flex-direction: column;
-      justify-content: space-between; 
+      justify-content: space-between;
       z-index: 3;
     }
 
-    
 
-    
+
+
     .top-row {
       display: flex;
       justify-content: space-between;
-      
+
     }
 
     .image {
       width: 155px;
       height: 155px;
       object-fit: cover;
-      display: flex; 
-      align-items: flex-start; 
+      display: flex;
+      align-items: flex-start;
     }
 
     .top-right-text {
       display: flex;
-      flex-direction: column; /* Added property */
-      align-items: flex-end; /* Added property */
+      flex-direction: column;
+      /* Added property */
+      align-items: flex-end;
+      /* Added property */
       text-align: right;
     }
 
     .top-right-text span {
-      margin-bottom: 15px; /* Added property */
+      margin-bottom: 15px;
+      /* Added property */
     }
 
     .text {
@@ -92,13 +100,15 @@
       color: #fff;
       font-size: 26px;
     }
-    
+
     .bold {
       font-weight: 450;
     }
+
     .italic {
       font-style: italic;
     }
+
     .drop-shade {
       text-shadow: 2px 2px black;
     }
@@ -106,7 +116,7 @@
     .quote {
       color: #fff;
       font-size: 20px;
-      
+
     }
 
     .image::before,
@@ -137,35 +147,143 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      overflow: hidden; /* Added property to hide overflow */
+      overflow: hidden;
+      /* Added property to hide overflow */
     }
 
     .image {
-    
+
       object-fit: cover;
       box-sizing: border-box;
       border: none;
-      box-shadow: 0 0 0 1px white; /* Set box-shadow to 1px white */
-      box-sizing: border-box; /* Added box-sizing property */
+      box-shadow: 0 0 0 1px white;
+      /* Set box-shadow to 1px white */
+      box-sizing: border-box;
+      /* Added box-sizing property */
     }
 
     .bottom-text {
-      text-align: left; /* Align text to the left */
-      bottom: 20px; /* Set bottom value to match the padding of blur container */
-      left: 20px; /* Set left value to match the padding of blur container */
+      text-align: left;
+      /* Align text to the left */
+      bottom: 20px;
+      /* Set bottom value to match the padding of blur container */
+      left: 20px;
+      /* Set left value to match the padding of blur container */
       position: absolute;
     }
 
+    .projects {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      /* Start the overlay off the right side of the screen */
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 1);
+      /* Black with slight opacity */
+      transition: right 1.5s cubic-bezier(.25, .1, .25, 1);
+      /* Animation effect */
+      display: flex;
+      z-index: 5;
+      background: url(slidein.png) no-repeat center center fixed;
+      background-size: cover;
+
+    }
+
+
+    .content-wrapper {
+      padding-top: 6%;
+      padding-left: 10%;
+      position: relative;
+      font-size: 45px;
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    .header {
+      color: yellow;
+      text-shadow: 2px 2px black;
+    }
+
+    .button {
+      cursor: pointer;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 3;
+      font-size: 40px;
+      padding-right: 40px;
+      padding-top: 30px;
+      /* Ensure it's above other elements in the project box */
+    }
+
+    /* Removes the focus border/outline around the button after clicking it */
+    .close-btn:focus {
+      outline: none;
+    }
+
+
+    .contact {
+      position: fixed;
+      top: 0;
+      left: -20%;
+      /* Start the contact off the left side of the screen */
+      width: 20%;
+      /* Takes up 20% of the screen width */
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Black with slight opacity */
+      transition: left 0.5s;
+      /* Animation effect */
+      display: flex;
+      align-items: center;
+      /* Center content vertically */
+      justify-content: center;
+      /* Center content horizontally */
+      z-index: 1000;
+      /* Ensures it's on top of other content */
+    }
+
+
+    .close-btn-contact {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .contact-text {
+      font-size: 24px;
+      color: white;
+      /* Add more styling for the contact content if needed */
+    }
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
   <div id="video-container">
-    <video id="background-video" autoplay loop muted poster="frame.png">
-      <source src="web-export2.mp4" type="video/mp4">
+    <video id="background-video" loop autoplay muted poster="frame.png">
+      <source src="compress.mp4" type="video/mp4">
     </video>
 
     <div class="overlay-text"></div>
@@ -174,21 +292,73 @@
       var video = document.getElementById('background-video');
       video.playbackRate = 1.2; // Set the playback rate to -0.5 for reverse at half speed
     </script>
-    
   </div>
-  
-  <div class="blur-container text"> 
+
+  <div class="blur-container text">
     <div class="top-row">
       <div class="image">
         <img class="image" src="Blake.png" alt="Profile Image">
-        <div class="image-crosshair"></div> 
+        <div class="image-crosshair"></div>
       </div>
       <div class="top-right-text">
         <span class="bold drop-shade">Blake Stewart</span>
-        <span class="drop-shade">projects</span>
-        <span class="drop-shade">contact</span>
+        <span id="projectsbutton" class="drop-shade button" onClick="">projects</span>
+        <span id="contactbutton" class="drop-shade button" onClick="">contact</span>
       </div>
     </div>
-  
-</body>
+
+
+  </div>
+  <div id="projects" class="projects">
+    <span class="close-btn" onclick="slideOut()">×</span>
+    <div class="content-wrapper">
+      <p class="project-text header">Projects</p>
+      <ul class="project-list">
+        <li>- Rostella</li>
+        <li>- Bonsai</li>
+        <li>- AiGen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="contact" class="contact">
+    <span class="close-btn-contact" onclick="hideContact()">×</span>
+
+    <div class="contact-content">
+      <p class="contact-text">Blake Stewart</p>
+      <p class="contact-text">blake.rstewart@outlook.com</p>
+      <p class="contact-text">@redwood.enjoyer</p>
+      
+      <!-- You can add a contact form or other details here -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+
+    document.getElementById("projectsbutton").addEventListener('click', slideIn, false);
+    document.getElementById("contactbutton").addEventListener('click', showContact, false);
+    function slideIn() {
+      const overlay = document.getElementById('projects');
+      overlay.style.right = '0'; // Slide the overlay in
+    }
+
+
+    function slideOut() {
+      const overlay = document.getElementById('projects');
+      overlay.style.right = '-100%'; // Slide the project out
+    }
+
+    function showContact() {
+    const contact = document.getElementById('contact');
+    contact.style.left = '0'; // Slide the contact box in
+}
+
+function hideContact() {
+    const contact = document.getElementById('contact');
+    contact.style.left = '-20%'; // Slide the contact box out
+}
+  </script>
+
 </html>
