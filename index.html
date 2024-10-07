@@ -314,9 +314,34 @@
     <div class="content-wrapper">
       <p class="project-text header">Projects</p>
       <ul class="project-list">
-        <li>- Rostella</li>
-        <li>- Bonsai</li>
-        <li>- AiGen</li>
+        <li style="margin-bottom: 20px;">
+          <a href="https://www.gateworks.com/products/single-board-computer-development-kits/u-blox-gps-lte-ble-development-kit/"
+            target="_blank" style="color: #e0e0e0;">u-blox
+            GNSS
+            Kit</a>: Extremely
+          precise GNSS/IOT DevKit for rugged areas.
+        </li>
+
+        <li style="margin-bottom: 20px;">
+          <a href="https://rostella.github.io/" target="_blank" style="color: #e0e0e0;">Rostella</a>: Open source IOT
+          irrigation for home
+          gardens.
+        </li>
+
+        <li style="margin-bottom: 20px;">
+          Bonsai: Grow with strength and intent.
+        </li>
+
+        <li style="margin-bottom: 20px;">
+          <a href="https://chipdev.github.io/convenience-calculator/" target="_blank"
+            style="color: #e0e0e0;">Convenience
+            Calculator</a>:
+          Route address -> local businesses (Airport, Gas)
+        </li>
+
+        <li style="margin-bottom: 20px;">
+          AiGen: Plug-in for fast and custom graphics.
+        </li>
       </ul>
     </div>
   </div>
@@ -327,8 +352,10 @@
     <div class="contact-content">
       <p class="contact-text">Blake Stewart</p>
       <p class="contact-text">blake.rstewart@outlook.com</p>
-      <p class="contact-text">@redwood.enjoyer</p>
-      
+      <p class="contact-text">@redwoodenjoyer</p>
+      <p class="contact-text"><a href="https://www.linkedin.com/in/blake-stewart-9082221b7/" target="_blank"
+          style="color: #e0e0e0;">LinkedIn</a></p>
+
       <!-- You can add a contact form or other details here -->
     </div>
   </div>
@@ -351,14 +378,44 @@
     }
 
     function showContact() {
-    const contact = document.getElementById('contact');
-    contact.style.left = '0'; // Slide the contact box in
-}
+      const contact = document.getElementById('contact');
+      contact.style.left = '0'; // Slide the contact box in
+    }
 
-function hideContact() {
-    const contact = document.getElementById('contact');
-    contact.style.left = '-20%'; // Slide the contact box out
-}
+    function hideContact() {
+      const contact = document.getElementById('contact');
+      contact.style.left = '-20%'; // Slide the contact box out
+    }
+
+    // New function to handle clicks outside the divs
+    function handleOutsideClick(event) {
+      const projectsDiv = document.getElementById('projects');
+      const contactDiv = document.getElementById('contact');
+      const projectsButton = document.getElementById('projectsbutton');
+      const contactButton = document.getElementById('contactbutton');
+
+      if (!projectsDiv.contains(event.target) && event.target !== projectsButton) {
+        slideOut();
+      }
+
+      if (!contactDiv.contains(event.target) && event.target !== contactButton) {
+        hideContact();
+      }
+    }
+
+    // Event listeners
+    document.getElementById("projectsbutton").addEventListener('click', slideIn);
+    document.getElementById("contactbutton").addEventListener('click', showContact);
+    document.addEventListener('click', handleOutsideClick);
+
+    // Prevent clicks inside the divs from closing them
+    document.getElementById('projects').addEventListener('click', function (event) {
+      event.stopPropagation();
+    });
+
+    document.getElementById('contact').addEventListener('click', function (event) {
+      event.stopPropagation();
+    });
   </script>
 
 </html>
